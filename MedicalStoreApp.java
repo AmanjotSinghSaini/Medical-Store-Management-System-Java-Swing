@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.sql.*;
 import java.util.ArrayList;
-import javax.swing.*;
+
 
 public class MedicalStoreApp {
     public static void main(String[] args) {
@@ -16,7 +16,7 @@ class DBHelper {
     static final String PASS = "tiger";
 
     public static Connection getConnection() throws Exception {
-        return DriverManager.getConnection(DB_URL, USER, PASS);
+        return DriverManager.getConnection(DB_URL, USER, PASS)
     }
 }
 
@@ -73,10 +73,10 @@ class AdminLoginPage extends JFrame {
         add(usernameField);
 
         add(new JLabel("Password:"));
-        passwordField = new JPasswordField();
+        passwordField = new JPasswordField()
         add(passwordField);
 
-        loginButton = new JButton("Login");
+        loginButton = new JButton("Login")
         backButton = new JButton("Back");
         add(loginButton);
         add(backButton);
@@ -121,12 +121,7 @@ class AdminDashboard extends JFrame {
         viewButton = new JButton("View All Medicines");
         logoutButton = new JButton("Logout");
 
-        add(addButton);
-        add(updateButton);
-        add(deleteButton);
-        add(searchButton);
-        add(viewButton);
-        add(logoutButton);
+        
 
         addButton.addActionListener(e -> {
             dispose();
@@ -818,3 +813,4 @@ class OrderHistoryPage extends JFrame {
         }
     }
 }
+
