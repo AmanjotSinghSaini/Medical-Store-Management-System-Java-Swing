@@ -11,7 +11,7 @@ public class MedicalStoreApp {
 
 // Database connection helper
 class DBHelper {
-    static final String DB_URL = "jdbc:mysql://localhost:3306/medical_store";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/medical_store"
     static final String USER = "root";
     static final String PASS = "tiger";
 
@@ -116,7 +116,7 @@ class AdminDashboard extends JFrame {
 
         addButton = new JButton("Add Medicine");
         updateButton = new JButton("Update Medicine");
-        deleteButton = new JButton("Delete Medicine");
+        deleteButton =  JButton("Delete Medicine");
         searchButton = new JButton("Search Medicine");
         viewButton = new JButton("View All Medicines");
         logoutButton = new JButton("Logout");
@@ -298,7 +298,7 @@ class UserLoginPage extends JFrame {
             JOptionPane.showMessageDialog(this, "Error during registration.");
         }
     }
-}
+
 
 // Customer Dashboard
 class CustomerDashboard extends JFrame {
@@ -818,3 +818,4 @@ class OrderHistoryPage extends JFrame {
         }
     }
 }
+
