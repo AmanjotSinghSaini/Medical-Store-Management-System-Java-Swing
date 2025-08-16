@@ -1,19 +1,17 @@
 name: AI Code Review
-
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-
 permissions:
   contents: read
   pull-requests: write
-
 jobs:
   ai-review:
     uses: AmanjotSinghSaini/ai-pr-reviewer/.github/workflows/review.yml@main
     with:
-      enable_gitleaks: false  # Set to false to disable secrets scanning
-      ai_model: 'llama3-8b-8192'  # Options: llama3-8b-8192, llama3-70b-4096, mixtral-8x7b-32768
-      exclude_paths: '*.md,*.txt,*.json,package-lock.json,yarn.lock,dist/*'  # Optional: files to exclude
+      ai_model: 'gpt-4o'  # Available models: gpt-4o-mini, gpt-4o, llama-3.1-70b, etc.
+      exclude_paths: '*.md,*.txt,*.json,package-lock.json,yarn.lock,dist/*'
+      max_file_lines: 1000  # Set to 0 for no file size limit, or specify max lines per file
+      max_files: 5  # Maximum number of files to review
     secrets:
-      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      AI_GITHUB_TOKEN: ${{ secrets.AI_GITHUB_TOKEN }}
